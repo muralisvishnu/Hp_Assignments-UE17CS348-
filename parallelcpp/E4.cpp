@@ -3,7 +3,7 @@
 #include <iostream>
 void* add(void*);
 void* subtract(void*);
-using namespace ns;
+using namespace std;
 int buffer[1000] = {0};
 typedef struct vars{
   sem_t *e;
@@ -46,12 +46,12 @@ void* subtract(void* pars){
 int main(){
   sem_t e;sem_t f;sem_t m;
   sem_init(&e, 0, 1000);sem_init(&f, 0, 0);sem_init(&m, 0, 1);
-  vars *producer = (vars*)malloc(sizeof(vars));vars *consumer = (vars*)malloc(sizeof(vars));
+  vars *producer = (vars*)malloc(sizeof(vars));vars *costdumer = (vars*)malloc(sizeof(vars));
   producer->e = &e;producer->f = &f;producer->m = &m;
-  consumer->e = &e;consumer->f = &f;consumer->m = &m;
-  producer->n = 200;consumer->n = 50;
+  costdumer->e = &e;costdumer->f = &f;costdumer->m = &m;
+  producer->n = 200;costdumer->n = 50;
   pthread_t p, c;
-  pthread_create(&p,NULL,add,(void*)producer);pthread_create(&c,NULL,subtract,(void*)consumer);
+  pthread_create(&p,NULL,add,(void*)producer);pthread_create(&c,NULL,subtract,(void*)costdumer);
   pthread_join(p, NULL);pthread_join(c, NULL);
   for(int i=0; i<1000; i++){
     cout << buffer[i];

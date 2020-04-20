@@ -1,6 +1,6 @@
 #include<iostream> 
 #define n 4 
-using namespace ns;
+using namespace std;
 int compltedPhilo = 0,i; 
 struct fork{
 	int taken;
@@ -11,16 +11,16 @@ struct philosp{
 }philosopher[n]; 
 void goForDinner(int pID){ 
 	if(philosopher[pID].left==10 && philosopher[pID].right==10)
-        cout<<"Philosopher "<<pID+1<<" completed his dinner\n";
+        cout<<"Philosopher "<<pID+1<<" finished his dinner\n";
 	else if(philosopher[pID].left==1 && philosopher[pID].right==1){
-            cout<<"Philosopher "<<pID+1<<" completed his dinner\n";
+            cout<<"Philosopher "<<pID+1<<" finished his dinner\n";
  
             philosopher[pID].left = philosopher[pID].right = 10; 
             int otherFork = pID-1;
             if(otherFork== -1)
                 otherFork=(n-1);
             fork[pID].taken = fork[otherFork].taken = 0;
-            cout<<"Philosopher "<<pID+1<<" released fork "<<pID+1<<" and fork "<<otherFork+1<<"\n";
+            cout<<"Philosopher "<<pID+1<<" left fork "<<pID+1<<" and fork "<<otherFork+1<<"\n";
             compltedPhilo++;
         }
         else if(philosopher[pID].left==1 && philosopher[pID].right==0){
@@ -72,7 +72,7 @@ int main(){
 	while(compltedPhilo<n){
 		for(i=0;i<n;i++)
             goForDinner(i);
-		cout<<"\nCompleted Philosophers "<<compltedPhilo<<"\n\n";
+		cout<<"\nfinished Philosophers "<<compltedPhilo<<"\n\n";
 	}
  
 	return 0;

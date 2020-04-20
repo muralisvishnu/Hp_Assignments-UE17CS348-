@@ -3,9 +3,7 @@
 #include <stdio.h>
 
 __global__
-void rgb_grey(const uchar4* const rgbaImage,
-                       unsigned char* const greyImage,
-                       int nr, int nc)
+void rgb_grey(const uchar4* const rgbaImage,unsigned char* const greyImage,int nr, int nc)
 {
       int indx.x = threadIdx.x;  
       int indx.y = threadIdx.y;
@@ -28,8 +26,7 @@ void rgb_grey(const uchar4* const rgbaImage,
     
 }
 
-void rgb_grey1(const uchar4 * const h_rgbaImage, uchar4 * const d_rgbaImage,
-                            unsigned char* const d_greyImage, size_t nr, size_t nc)
+void rgb_grey1(const uchar4 * const h_rgbaImage, uchar4 * const d_rgbaImage,unsigned char* const d_greyImage, size_t nr, size_t nc)
 {
   
   const dim3 blockSize(nr/16+1, nc/16+1, 1);  //TODO

@@ -1,7 +1,7 @@
 #include <pthread.h>
 #include <iostream>
 #include <semaphore.h>
-using namespace ns;
+using namespace std;
 void* b(void*);
 void* c(void*);
 typedef struct vars{

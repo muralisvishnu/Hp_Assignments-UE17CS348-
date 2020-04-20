@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-using namespace ns;
+using namespace std;
 int rcount = 0;
 mutex rwmutex, lm;
 void *read(void* pid) {
